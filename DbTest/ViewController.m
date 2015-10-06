@@ -47,9 +47,11 @@
 
 -(void)didPressLink
 {
-    if (![[DBSession sharedSession] isLinked])
-    {
+    if (![[DBSession sharedSession] isLinked]){
         [[DBSession sharedSession] linkFromController:self];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Message" message:@"Link to your account exists, you can access your files directly." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
     }
 }
 
